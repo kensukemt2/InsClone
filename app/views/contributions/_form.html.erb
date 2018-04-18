@@ -1,0 +1,23 @@
+<%= form_with(model: @contribution, local: true) do |f| %>
+  <% if @contribution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @contribution.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @contribution.errors.full_message.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="contribution_image">
+    <%= f.label :image %>
+    <%= f.file_field :image, id: :feed_image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="contibution_caption">
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </div>
+  <%= f.submit %>
+<% end %>

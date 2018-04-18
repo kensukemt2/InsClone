@@ -1,0 +1,5 @@
+<% @contributions.each do |c| %>
+  <div>
+    <%= link_to image_tag(c.image),contribution_path(c.id) %>
+  </div>
+<% end %>

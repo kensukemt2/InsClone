@@ -1,0 +1,14 @@
+<h1><%= @user.name %>のページ</h1>
+
+<p>メールアドレス: <%= @user.email %></p>
+
+<p> プロフィール画像： <%= image_tag(@user.image) %></p>
+
+<p><%= link_to "ユーザー情報を変更する", edit_user_path(@user) %></p>
+<div>
+  自分の投稿一覧
+  <% @contribution.each do |con| %>
+    <%= link_to image_tag(con.image), edit_contribution_path(con.id) %>
+    <%= con.caption %>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+<h3>以下の内容で登録しますか？</h3>
+
+<%= form_with(model: @user, local:true, url: choose_new_or_edit ) do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+
+  <p>名前：<%= @user.name %></p>
+  <p>メールアドレス：<%= @user.email %></p>
+  <p>プロフィール画像：<%= image_tag @user.image %></p>
+  <p>パスワードは表示しません</p>
+  <%= f.submit "登録する" %>
+<% end %>
+
+<%= form_with(model: @user, url: new_user_path, local: true, method: 'get') do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.submit "戻る", name: 'back' %>
+<% end %>

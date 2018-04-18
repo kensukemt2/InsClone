@@ -1,0 +1,15 @@
+<%= image_tag(@contribution.image) %>
+<%= @contribution.user.name %>
+<%= @contribution.caption %>
+
+<% if @contribution.user == current_user %>
+  <%= link_to "投稿を編集する", edit_contribution_path %>
+  <%= link_to "投稿を削除する", contribution_path(@contribution.id),
+                              method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+<% else %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(contribution_id: @contribution.id), method: :delete  %>
+  <% else %>
+    <%= link_to "お気に入りに登録する", favorites_path(contribution_id: @contribution.id), method: :post %>
+  <% end %>
+<% end %>
