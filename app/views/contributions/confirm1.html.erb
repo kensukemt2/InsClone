@@ -1,0 +1,15 @@
+<h3>以下の内容で登録しますか？</h3>
+
+<%= form_with(model: @contribution, local:true, url: contributions_path ) do |f| %>
+  <%= f.hidden_field :caption %>
+
+  <p>画像：<%= image_tag(@contribution.image) %></p>
+  <%= hidden_field_tag :"cache[image]",@contribution.image.cache_name %>
+  <p>キャプション：<%= @contribution.caption %></p>
+  <%= f.submit "登録する" %>
+<% end %>
+
+<%= form_with(model: @contribution, url: new_contribution_path, local: true, method: 'get') do |f| %>
+  <%= f.hidden_field :caption %>
+  <%= f.submit "戻る", name: 'back' %>
+<% end %>

@@ -34,7 +34,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @contribution = @user.contributions
+    @contributions = @user.contributions
+    @favorite_conts = @user.favorite_conts
   end
 
   def edit

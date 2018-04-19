@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   root to: 'contributions#top'
-  resources :contributions
+  resources :contributions do
+    collection do
+      post :confirm1
+    end
+  end
+
   resources :users do
     collection do
       post :confirm
@@ -11,4 +16,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :favorites, only: [:create, :destroy]
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

@@ -1,3 +1,106 @@
 // Place all the styles related to the contributions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div, img {
+	max-width: 100%;
+  max-height: 100%;
+	height: auto;
+  font-size: 2rem;
+  object-fit: contain;
+}
+
+table {
+	width: 100%;
+}
+td{
+  width: auto;
+  padding: auto;
+}
+.profbox{
+  height: 30%;
+}
+.user_prof{
+  font-size: 3rem;
+}
+.row-eq-height {
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-wrap: wrap;
+}
+body , html {
+  height: 100%;
+}
+
+#container {
+  width: 100%;
+  position: relative;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+  overflow: auto;
+}
+#contents {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  overflow: auto;
+
+}
+header{
+  padding-left: 2rem;
+	padding-right: 2rem;
+  background-color: #ffffff;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+.header img{
+  height: 60px;
+}
+.header a{
+  color: #ffffff;
+
+}
+.header_elm{
+		margin-top: 2rem;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    padding:  2rem;
+    background-color: #ffffff;
+    text-align: center;
+}
+footer a{
+    color: #ffffff;
+}
+
+.top_site{
+  align-items: center;
+  padding: 3rem;
+  text-align: center;
+  font-size: 3rem;
+}
+.top_elem{
+	padding: 3rem;
+	margin: 3rem;
+}
+.show_elm a{
+	color: #ffffff;
+}
+.cont_img{
+	position: relative;
+	overflow: hidden;
+	  padding-bottom: 30%;
+}
+.cont_img img{
+  position: absolute;
+	top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+}

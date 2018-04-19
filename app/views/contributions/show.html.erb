@@ -1,15 +1,20 @@
-<%= image_tag(@contribution.image) %>
-<%= @contribution.user.name %>
-<%= @contribution.caption %>
-
-<% if @contribution.user == current_user %>
-  <%= link_to "投稿を編集する", edit_contribution_path %>
-  <%= link_to "投稿を削除する", contribution_path(@contribution.id),
-                              method: :delete, data: { confirm: '本当に削除していいですか？' } %>
-<% else %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(contribution_id: @contribution.id), method: :delete  %>
-  <% else %>
-    <%= link_to "お気に入りに登録する", favorites_path(contribution_id: @contribution.id), method: :post %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5"><%= image_tag(@contribution.image) %></div>
+    <div class="col-xs-7">
+      <div>投稿者名：<%= @contribution.user.name %></div>
+      <div>キャプション：<%= @contribution.caption %></div>
+      <% if @contribution.user == current_user %>
+        <div type="button" class="btn-info show_elm"><%= link_to "投稿を編集する", edit_contribution_path %></div>
+        <div type="button" class="btn-danger show_elm"><%= link_to "投稿を削除する", contribution_path(@contribution.id),
+                                    method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
+      <% else %>
+        <% if @favorite.present? %>
+          <div type="button" class="btn-info show_elm"><%= link_to 'お気に入り解除する', favorite_path(contribution_id: @contribution.id), method: :delete  %></div>
+        <% else %>
+          <div type="button" class="btn-info show_elm"><%= link_to "お気に入りに登録する", favorites_path(contribution_id: @contribution.id), method: :post %></div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

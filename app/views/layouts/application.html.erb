@@ -9,20 +9,36 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
+    <div id="container">
+      <header>
 
-    <% if logged_in? %>
-      <%= link_to "プロフィール", user_path(current_user.id) %>
-      <%= link_to "投稿一覧", contributions_path %>
-      <%= link_to "新規投稿", new_contribution_path %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-    <% end %>
+        <div class="header">
+          <% if logged_in? %>
+            <div type="btn" class="pull-right btn-success header_elm"><%= link_to "プロフィール", user_path(current_user.id) %></div>
+            <%= link_to image_tag('insclone.png'), root_path %>
+            <div type="btn" class="pull-left btn-success header_elm"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
+          <% else %>
+            <div type="btn" class="pull-right btn-success header_elm"><%= link_to "新規登録", new_user_path %></div>
+            <%= link_to image_tag('insclone.png'), root_path %>
+            <div type="btn" class="pull-left btn-success header_elm"><%= link_to "ログイン", new_session_path %></div>
+          <% end %>
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "#{key}") %>
+          <% end %>
+        </div>
+      </header>
+      <div id="contents">
+      <%= yield %>
+      </div>
+      <footer class="row">
+        <% if logged_in? %>
+          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
+          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "投稿一覧", contributions_path %></div>
+          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "新規投稿", new_contribution_path %></div>
+          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "プロフィール", user_path(current_user.id) %></div>
+        <% end %>
 
-    <%= yield %>
+      </footer>
+    </div>
   </body>
 </html>
