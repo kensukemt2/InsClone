@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     if @user.save
       current_user.id = @user.id
-      redirect_to new_session_path(@user.id)
+      redirect_to new_session_path()
     else
       render 'new'
     end
