@@ -12,21 +12,29 @@
 <% end %>
 
 <%= form_with(model: @user, local: true,url: choose_new_or_edit) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
 
-  <%= f.label :image %>
-  <%= f.file_field :image, id: :feed_image %>
-  <%= f.hidden_field :image_cache %>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image, id: :feed_image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "登録します" %>
+  <div><%= f.submit "登録します" %></div>
 <% end %>
