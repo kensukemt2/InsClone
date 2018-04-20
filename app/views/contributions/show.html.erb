@@ -5,14 +5,14 @@
       <div>投稿者名：<%= @contribution.user.name %></div>
       <div>キャプション：<%= @contribution.caption %></div>
       <% if @contribution.user == current_user %>
-        <div type="button" class="btn-info show_elm"><%= link_to "投稿を編集する", edit_contribution_path %></div>
-        <div type="button" class="btn-danger show_elm"><%= link_to "投稿を削除する", contribution_path(@contribution.id),
-                                    method: :delete, data: { confirm: '本当に削除していいですか？' } %></div>
+        <div class="show_elm"><%= link_to "投稿を編集する", edit_contribution_path, type: "button", class: "btn-info"  %></div>
+        <div class="show_elm"><%= link_to "投稿を削除する", contribution_path(@contribution.id),
+                                    method: :delete, data: { confirm: '本当に削除していいですか？' }, type: "button", class: "btn-danger"  %></div>
       <% else %>
         <% if @favorite.present? %>
-          <div type="button" class="btn-info show_elm"><%= link_to 'お気に入り解除する', favorite_path(contribution_id: @contribution.id), method: :delete  %></div>
+          <div class="show_elm"><%= link_to 'お気に入り解除する', favorite_path(contribution_id: @contribution.id), method: :delete, type: "button", class: "btn-info" %></div>
         <% else %>
-          <div type="button" class="btn-info show_elm"><%= link_to "お気に入りに登録する", favorites_path(contribution_id: @contribution.id), method: :post %></div>
+          <div class="show_elm"><%= link_to "お気に入りに登録する", favorites_path(contribution_id: @contribution.id), method: :post, type: "button", class: "btn-info" %></div>
         <% end %>
       <% end %>
     </div>

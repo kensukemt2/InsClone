@@ -32,10 +32,15 @@
       </div>
       <footer class="row">
         <% if logged_in? %>
-          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
-          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "投稿一覧", contributions_path %></div>
-          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "新規投稿", new_contribution_path %></div>
-          <div type="btn" class="col-xs-3 btn-success btn-lg"><%= link_to "プロフィール", user_path(current_user.id) %></div>
+          <!-- <div class="col-xs-3"><%= link_to "ログアウト", session_path(current_user.id), method: :delete, type: "btn", class: "btn-success btn-lg" %></div>
+          <div class="col-xs-3"><%= link_to "投稿一覧", contributions_path, type: "btn", class: "btn-success btn-lg"  %></div>
+          <div class="col-xs-3"><%= link_to "新規投稿", new_contribution_path, type: "btn", class: "btn-success btn-lg"  %></div>
+          <div class="col-xs-3"><%= link_to "プロフィール", user_path(current_user.id), type: "btn", class: "btn-success btn-lg" %></div> -->
+
+          <div type="btn"  class="col-xs-3 btn-success btn-lg"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></div>
+          <div type="btn"  class="col-xs-3 btn-success btn-lg"><%= link_to "投稿一覧", contributions_path  %></div>
+          <div type="btn"  class="col-xs-3 btn-success btn-lg"><%= link_to "新規投稿", new_contribution_path %></div>
+          <div type="btn"  class="col-xs-3 btn-success btn-lg"><%= link_to "プロフィール", user_path(current_user.id) %></div>
         <% end %>
 
       </footer>

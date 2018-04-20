@@ -13,7 +13,7 @@
     自分の投稿一覧
     <table>
       <% @contributions.each do |con| %>
-        <tr class="col-xs-4 cont_img">
+        <tr class="col-xs-12 col-sm-6 col-md-4 cont_img">
           <td><%= link_to image_tag(con.image), contribution_path(con.id) %></td>
           <!-- <td><%= con.caption %></td> -->
         </tr>
@@ -24,7 +24,7 @@
     お気に入り一覧
     <table>
     <% @favorite_conts.each do |con| %>
-      <tr class="col-xs-4 cont_img">
+      <tr class="col-xs-12 col-sm-6 col-md-4 cont_img">
         <td><%= link_to image_tag(con.image), contribution_path(con.id) %></td>
         <!-- <td><%= con.caption %></td> -->
       </tr>
